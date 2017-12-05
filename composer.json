@@ -1,0 +1,26 @@
+{
+    "name": "jessica-mulein/proportional-proof-of-work-laravel",
+    "description": "Middleware and library to thwart DOS and scraping by using proof-of-work and headers",
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "authors": [
+        {
+            "name": "Jessica Mulein",
+            "email": "jessica@mulein.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^7.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "JessicaMulein\\LaravelProportionalProofOfWork\\": "./src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
