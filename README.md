@@ -6,8 +6,8 @@ The concept really is a library that can perform as a combination of CSRF and Th
 The author is presently investigating two approaches- one which works as part of form submission and another which can protect GET assets with a knowledeable client (site-specific JavaScript code).    
 
 
-Laravel: https://github.com/jessica-mulein/proportional-proof-of-work-laravel / https://packagist.org/packages/jessica-mulein/proportional-proof-of-work-laravel
+Laravel (WIP): https://github.com/jessica-mulein/proportional-proof-of-work-laravel / https://packagist.org/packages/jessica-mulein/proportional-proof-of-work-laravel
 
 Laravel Integration Demo (WIP): https://github.com/jessica-mulein/proportional-proof-of-work-laravel-demo
 
-Fontend: https://github.com/jessica-mulein/proportional-proof-of-work-js
+Fontend (WIP): https://github.com/jessica-mulein/proportional-proof-of-work-js

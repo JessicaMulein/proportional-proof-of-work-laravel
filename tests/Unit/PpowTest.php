@@ -96,13 +96,13 @@ class PpowTest extends TestCase
     public function test_it_fails_to_work_with_bits_0()
     {
         $this->expectException(InvalidHashException::class);
-        $work = Work::fromString('0.1:0:123456:this is a test resource:abcdefg=/:abcdefg=/');
+        $work = Work::fromString('0.2:0:123456:this is a test resource:abcdefg=/:abcdefg=/');
     }
 
     public function test_it_fails_to_work_with_bits_256()
     {
         $this->expectException(InvalidHashException::class);
-        $work = Work::fromString('0.1:256:123456:this is a test resource:abcdefg=/:abcdefg=/');
+        $work = Work::fromString('0.2:256:123456:this is a test resource:abcdefg=/:abcdefg=/');
     }
 
     /**

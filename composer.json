@@ -1,6 +1,7 @@
 {
     "name": "jessica-mulein/proportional-proof-of-work-laravel",
     "description": "Middleware and library to thwart DOS and scraping by using proof-of-work and headers",
+    "version": "0.2-dev",
     "minimum-stability": "dev",
     "require": {
     },

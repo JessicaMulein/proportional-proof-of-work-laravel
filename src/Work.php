@@ -5,9 +5,10 @@ namespace JessicaMulein\LaravelProportionalProofOfWork;
 
 class Work
 {
-    const VERSION = 0.1;
+    const VERSION = 0.2; // double sha256 ala bitcoin
     const HASH_SIZE = 256;
     const MAX_BITS = 255; // 256 - 1: at least one bit
+    const DOUBLE_HASH = true;
 
     /**
      * @var float
@@ -75,7 +76,7 @@ class Work
         $work = new static(intval($workArray[1]), trim($workArray[3]));
 
         // coerce numbers / set instance variables to provided values
-        $work->version = floatval($workArray[0]);
+        $work->version = trim($workArray[0]);
         $work->date = intval($workArray[2]);
         $work->rand = !is_null($workArray[4]) ? trim($workArray[4]) : null;
         $work->counter = !is_null($workArray[5]) ? trim($workArray[5]) : null;
@@ -98,7 +99,7 @@ class Work
 
     public function __toString()
     {
-        return sprintf('%f:%d:%d:%s:%s:%s',
+        return sprintf('%s:%d:%d:%s:%s:%s',
             $this->version,
             $this->bits,
             $this->date,
@@ -118,8 +119,7 @@ class Work
     {
         $version = floatval($version);
 
-        // this version is currently backwards compatible
-        return true;
+        return ($version >= 0.2);
     }
 
     protected static function testBits($binaryHash)
@@ -148,6 +148,9 @@ class Work
     public function isValid()
     {
         $hash = hash('sha'.static::HASH_SIZE, $this->__toString(), true);
+        if (static::DOUBLE_HASH) {
+            $hash = hash('sha'.static::HASH_SIZE, $hash, true);
+        }
         // verify number of zeroes at left
         return static::verifyBits($hash, $this->bits);
     }
